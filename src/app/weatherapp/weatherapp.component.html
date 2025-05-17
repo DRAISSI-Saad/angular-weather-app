@@ -1,0 +1,68 @@
+<div class="container py-5" [ngClass]="isDarkMode ? 'bg-dark text-light' : 'bg-light text-dark'" style="min-height: 100vh;">
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-outline-secondary" (click)="toggleDarkMode()">
+      <i class="bi" [ngClass]="isDarkMode ? 'bi-moon-fill' : 'bi-brightness-high-fill'"></i>
+      {{ isDarkMode ? 'Mode clair' : 'Mode sombre' }}
+    </button>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-12">
+      <div class="card shadow border-0 rounded-4" [ngClass]="isDarkMode ? 'bg-secondary text-light' : 'bg-white text-dark'">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4 fw-bold" style="letter-spacing:1px;">Météo en temps réel</h2>
+          <form (ngSubmit)="getweatherData()" class="mb-4">
+            <div class="input-group">
+              <input type="text" class="form-control form-control-lg" placeholder="Entrez le nom de la ville" [(ngModel)]="cityName" name="cityName" [class.is-invalid]="error">
+              <button class="btn btn-primary btn-lg" type="submit">Rechercher</button>
+            </div>
+            <div class="invalid-feedback" *ngIf="error">{{ error }}</div>
+          </form>
+
+          <div *ngIf="weatherData" class="text-center">
+            <div class="mb-4">
+              <img *ngIf="cityImage" [src]="cityImage" alt="{{ cityName }}" class="img-fluid rounded-4 shadow-sm" style="max-height: 260px; object-fit: cover; width: 100%;">
+            </div>
+            <h3 class="mb-1 text-capitalize">
+              {{ cityName }}
+              <span *ngIf="cityName.toLowerCase() === 'dakhla'">
+                (MA)
+                <img src="assets/maroc-flag.png" alt="" style="height: 24px; width: auto; margin-left: 4px; vertical-align: middle; display: inline-block;">
+              </span>
+            </h3>
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <span class="me-2">{{ pays }}</span>
+            </div>
+            <div class="row g-3 mt-3">
+              <div class="col-6 col-md-4" *ngFor="let info of [
+                {icon: 'bi-thermometer-half', value: temperature + '°C', label: 'Température'},
+                {icon: 'bi-thermometer-half', value: feelsLike + '°C', label: 'Ressentie'},
+                {icon: 'bi-droplet', value: humidity + '%', label: 'Humidité'},
+                {icon: 'bi-wind', value: windSpeed + ' m/s', label: 'Vent'},
+                {icon: 'bi-cloud', value: clouds + '%', label: 'Nuages'},
+                {icon: 'bi-clock', value: sunriseTimeString + ' / ' + sunsetTimeString, label: 'Lever / Coucher'}
+              ]; let i = index">
+                <div class="card border-0 shadow-sm" [ngClass]="isDarkMode ? 'bg-dark text-light' : 'bg-light text-dark'">
+                  <div class="card-body p-2">
+                    <div class="fs-4"><i class="bi" [ngClass]="info.icon"></i> {{ info.value }}</div>
+                    <div class="text-muted small">{{ info.label }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <span class="badge bg-primary fs-6">{{ description }}</span>
+            </div>
+          </div>
+
+          <!-- Nouvelle Card 3D pour la carte -->
+          <div class="card map-card shadow-lg my-4" style="perspective: 1000px;">
+            <div class="card-body" style="transform: rotateY(5deg); transition: transform 0.5s;">
+              <h5 class="card-title text-center mb-3">Localisation sur la carte</h5>
+              <div id="cityMap" style="height: 300px; border-radius: 15px; overflow: hidden; position: relative;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

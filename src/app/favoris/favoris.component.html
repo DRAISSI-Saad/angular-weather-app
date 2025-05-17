@@ -1,0 +1,41 @@
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h1 class="text-center mb-4">Villes Favoris</h1>
+
+          <form (ngSubmit)="addFavorite()" class="mb-4">
+            <div class="input-group">
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Ajouter une ville aux favoris" 
+                [(ngModel)]="newCity" 
+                name="newCity">
+              <button class="btn btn-primary" type="submit">Ajouter</button>
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let city of favoriteCities">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">{{ city.name }}</h5>
+                  <p class="card-text">
+                    <i class="bi bi-thermometer-half"></i> {{ city.temperature }}°C<br>
+                    <i class="bi bi-wind"></i> {{ city.windSpeed }} m/s<br>
+                    <i class="bi bi-droplet"></i> {{ city.humidity }}%
+                  </p>
+                  <button class="btn btn-danger btn-sm" (click)="removeFavorite(city)">
+                    <i class="bi bi-trash"></i> Supprimer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
