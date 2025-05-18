@@ -1,27 +1,79 @@
-# Appweather
+# Application Météo Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Une application météo moderne et interactive construite avec Angular, offrant des prévisions météorologiques en temps réel.
 
-## Development server
+## 🌟 Fonctionnalités
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Recherche de météo par ville
+- Affichage des conditions météorologiques actuelles
+- Prévisions sur plusieurs jours
+- Interface utilisateur moderne et responsive
+- Animations fluides
+- Thème dynamique qui change selon la météo
 
-## Code scaffolding
+## 🛠️ Technologies utilisées
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 17
+- TypeScript
+- HTML5/CSS3
+- API Météo (OpenWeatherMap)
+- RxJS pour la gestion des observables
 
-## Build
+## 📸 Captures d'écran
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Interface principale](screenshots/main.png)
+![Vue détaillée](screenshots/detail.png)
 
-## Running unit tests
+## 🚀 Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clonez le repository :
+```bash
+git clone https://github.com/Saakoon/angular-weather-app.git
+```
 
-## Running end-to-end tests
+2. Installez les dépendances :
+```bash
+cd angular-weather-app
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Lancez l'application :
+```bash
+ng serve
+```
 
-## Further help
+4. Ouvrez votre navigateur à l'adresse `http://localhost:4200`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📝 Configuration
+
+Créez un fichier `environment.ts` dans `src/environments/` avec votre clé API OpenWeatherMap :
+
+```typescript
+export const environment = {
+  production: false,
+  apiKey: 'VOTRE_CLE_API'
+};
+```
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+1. Fork le projet
+2. Créer une branche pour votre fonctionnalité
+3. Commiter vos changements
+4. Pousser vers la branche
+5. Ouvrir une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👨‍💻 Auteur
+
+- **Votre Nom** - [GitHub](https://github.com/Saakoon)
+
+## 🙏 Remerciements
+
+- OpenWeatherMap pour leur API
+- La communauté Angular
+- Tous les contributeurs
