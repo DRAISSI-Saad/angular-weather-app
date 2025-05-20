@@ -13,7 +13,7 @@ Une application météo moderne et interactive construite avec Angular, offrant 
 
 ## 🛠️ Technologies utilisées
 
-- Angular 17
+- Angular 19
 - TypeScript
 - HTML5/CSS3
 - API Météo (OpenWeatherMap)
