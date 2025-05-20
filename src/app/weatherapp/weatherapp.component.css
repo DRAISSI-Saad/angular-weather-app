@@ -1,3 +1,11 @@
+body, .container {
+  background: linear-gradient(120deg, #6a0572 0%, #ab1d3c 100%);
+  min-height: 100vh;
+}
+
+.container {
+  background: transparent !important;
+}
 .weather-app {
   max-width: 100%;
   width: 100%;
@@ -622,4 +630,11 @@
     margin-bottom: 1rem;
   }
 }
+
+.theme-clear { background: linear-gradient(135deg, #f9d423, #ff4e50) !important; }
+.theme-rain { background: linear-gradient(135deg, #314755, #26a0da) !important; }
+.theme-clouds { background: linear-gradient(135deg, #757f9a, #d7dde8) !important; }
+.theme-snow { background: linear-gradient(135deg, #e6dada, #274046) !important; }
+.theme-night { background: linear-gradient(135deg, #232526, #414345) !important; }
+.theme-default { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d) !important; }
 

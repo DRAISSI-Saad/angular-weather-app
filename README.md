@@ -6,23 +6,25 @@ Une application météo moderne et interactive construite avec Angular, offrant 
 
 - Recherche de météo par ville
 - Affichage des conditions météorologiques actuelles
-- Prévisions sur plusieurs jours
+- Navigation entre les pages
 - Interface utilisateur moderne et responsive
 - Animations fluides
 - Thème dynamique qui change selon la météo
 
 ## 🛠️ Technologies utilisées
 
-- Angular 17
+- Angular 19
 - TypeScript
 - HTML5/CSS3
 - API Météo (OpenWeatherMap)
+- API pour les photos (unsplash)
 - RxJS pour la gestion des observables
 
 ## 📸 Captures d'écran
 
 ![Interface principale](screenshots/main.png)
 ![Vue détaillée](screenshots/detail.png)
+![Mobile forme](screenshots/casablanca.png)
 
 ## 🚀 Installation
 
@@ -70,7 +72,7 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 👨‍💻 Auteur
 
-- **Votre Nom** - [GitHub](https://github.com/Saakoon)
+- **DRAISSI SAAD** - [GitHub](https://github.com/Saakoon)
 
 ## 🙏 Remerciements
 

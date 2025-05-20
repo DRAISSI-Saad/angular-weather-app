@@ -66,6 +66,7 @@ export class WeatherappComponent implements OnInit, AfterViewInit, OnDestroy {
     const savedTheme = localStorage.getItem('theme');
     this.isDarkMode = savedTheme === 'dark';
     this.applyTheme();
+    // On ne touche pas à la carte ici, ni au champ de saisie
   }
 
   toggleDarkMode() {
@@ -88,6 +89,10 @@ export class WeatherappComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     setTimeout(() => {
       this.initMap();
+      // Centrer la carte sur Casablanca par défaut
+      if (this.map) {
+        this.map.setView([33.5731, -7.5898], 12);
+      }
     }, 100);
   }
 
@@ -243,5 +248,16 @@ export class WeatherappComponent implements OnInit, AfterViewInit, OnDestroy {
     if (formdata.valid) {
       this.getweatherData();
     }
+  }
+
+  getThemeClass(): string {
+    if (!this.weatherData) return 'theme-default';
+    const main = this.weatherData.weather[0].description.toLowerCase();
+    if (main.includes('soleil') || main.includes('clear')) return 'theme-clear';
+    if (main.includes('pluie') || main.includes('rain')) return 'theme-rain';
+    if (main.includes('nuage') || main.includes('cloud')) return 'theme-clouds';
+    if (main.includes('neige') || main.includes('snow')) return 'theme-snow';
+    if (main.includes('nuit') || main.includes('night')) return 'theme-night';
+    return 'theme-default';
   }
 }
